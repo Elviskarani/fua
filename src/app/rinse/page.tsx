@@ -1,3 +1,5 @@
+"use client";
+
 import RinseRepeatComponent from "../components/rinserepeat";
 import BagCareSection from "../components/Bagcare";
 import TestimonialsSection from "../components/testimonial";

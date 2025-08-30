@@ -31,7 +31,7 @@ const Header: React.FC<HeaderProps> = ({ className = '' }) => {
             </Link>
 
             <Link 
-              href="/rinse-repeat" 
+              href="/rinse" 
               className="text-gray-700 hover:text-orange-500 font-medium text-xl transition-colors"
             >
               Rinse Repeat
