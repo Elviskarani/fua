@@ -29,8 +29,8 @@ const PricingComponent = () => {
               <p className="text-xl text-gray-700 mb-4">
                 Two options, one goal: your convenience. 
                 Forget about laundry and{' '}
-                <span className="text-cyan-500 font-semibold">save up to 52% with Rinse Repeat</span>, 
-                or try Rinse with Pay-As-You-Go.
+                <span className="text-cyan-500 font-semibold">save up to 52% with Fua Repeat</span>, 
+                or try Fua with Pay-As-You-Go.
               </p>
             </div>
 
@@ -66,26 +66,26 @@ const PricingComponent = () => {
               <div className="space-y-6">
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">Pay-As-You-Go</h3>
-                  <p className="text-gray-600">Occasional, priced per pound.</p>
+                  <p className="text-gray-600">Occasional, priced per kg.</p>
                 </div>
 
                 <div>
                   <p className="text-sm text-gray-500 mb-2">Always</p>
                   <div className="text-4xl font-bold text-gray-900 mb-4">
-                    $2.99<span className="text-2xl font-normal text-gray-600">/lb</span>
+                    100ksh<span className="text-2xl font-normal text-gray-600">/kg</span>
                   </div>
                 </div>
 
                 <div className="space-y-3 text-sm text-gray-600">
                   <div className="flex items-center justify-between">
-                    <span>$9.95 Pickup & Delivery Fee</span>
+                    <span>50ksh Pickup & Delivery Fee</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span>3-4 Day Turnaround or $9.95 Next-Day Rush</span>
+                    <span>1-2 Day Turnaround or 200ksh Next-Day Rush</span>
                     <InfoIcon />
                   </div>
                   <div className="flex items-center justify-between">
-                    <span>$5.00 Service Fee</span>
+                    <span>20ksh Service Fee</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <span>Household items priced separately</span>
@@ -110,28 +110,28 @@ const PricingComponent = () => {
 
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-2xl font-bold mb-2">Rinse Repeat</h3>
+                  <h3 className="text-2xl font-bold mb-2">Fua Repeat</h3>
                   <p className="text-teal-200">All-inclusive subscription, priced per bag.</p>
                 </div>
 
                 <div>
                   <p className="text-sm text-teal-300 mb-2">As low as*</p>
                   <div className="text-4xl font-bold mb-4">
-                    $1.64<span className="text-2xl font-normal text-teal-200">/lb</span>
+                    90ksh<span className="text-2xl font-normal text-teal-200">/kg</span>
                   </div>
                 </div>
 
                 <div className="space-y-3 text-sm text-teal-200">
                   <div className="flex items-center justify-between">
-                    <span className="line-through">$9.95</span>
+                    <span className="line-through">50ksh</span>
                     <span className="text-white font-medium">Free Pickup & Delivery</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="line-through">$9.95</span>
+                    <span className="line-through">200ksh</span>
                     <span className="text-white font-medium">Free Next-Day Rush Service</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="line-through">$5.00</span>
+                    <span className="line-through">20ksh</span>
                     <span className="text-white font-medium">Waived Service Fee</span>
                   </div>
                   <div className="text-white font-medium">
@@ -141,16 +141,16 @@ const PricingComponent = () => {
                     Unlimited rollover of bags and pounds
                   </div>
                   <div className="text-white font-medium">
-                    $10.00 in monthly credit for other services
+                    1000ksh in monthly credit for other services
                   </div>
                 </div>
 
                 <div className="space-y-3">
                   <button className="w-full py-3 px-6 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-xl transition-colors duration-200">
-                    Explore Rinse Repeat plans
+                    Explore Fua Repeat plans
                   </button>
                   <button className="w-full text-orange-300 hover:text-orange-200 font-medium text-sm transition-colors duration-200">
-                    Learn about all Rinse Repeat features
+                    Learn about all Fua Repeat features
                   </button>
                 </div>
               </div>

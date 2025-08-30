@@ -2,12 +2,12 @@ import React from 'react';
 
 interface BagCareSectionProps {
   laundryPileImage?: string;
-  rinseBagImage?: string;
+  fuaBagImage?: string;
 }
 
 const BagCareSection: React.FC<BagCareSectionProps> = ({
   laundryPileImage,
-  rinseBagImage
+  fuaBagImage
 }) => {
   return (
     <div className="bg-white py-16 px-4">
@@ -30,17 +30,17 @@ const BagCareSection: React.FC<BagCareSectionProps> = ({
               )}
             </div>
             
-            {/* Rinse Bag */}
+            {/* Fua Bag */}
             <div className="flex-shrink-0">
-              {rinseBagImage ? (
+              {fuaBagImage ? (
                 <img 
-                  src={rinseBagImage} 
-                  alt="Rinse wash and fold bag"
+                  src={fuaBagImage} 
+                  alt="Fua wash and fold bag"
                   className="w-64 h-48 object-cover"
                 />
               ) : (
                 <div className="w-64 h-48 bg-gray-200 rounded-lg flex items-center justify-center">
-                  <span className="text-gray-400">Rinse Bag Image</span>
+                  <span className="text-gray-400">Fua Bag Image</span>
                 </div>
               )}
             </div>
@@ -57,7 +57,7 @@ const BagCareSection: React.FC<BagCareSectionProps> = ({
           {/* Description */}
           <div className="max-w-3xl mx-auto space-y-2">
             <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-              Rinse Repeat plans are priced by the bag, not the pound. Select the
+              Fua Repeat plans are priced by the bag, not the pound. Select the
             </p>
             <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
               number of bags you need each month and enjoy service 7 days a week.

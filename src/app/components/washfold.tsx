@@ -1,11 +1,37 @@
 "use client";
 
-import React, { useState } from 'react';
-import { ChevronRight, Package, Shirt, Wind } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { ChevronRight, Package, Shirt, Wind, ChevronDown } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { generateTimeSlots, TimeSlot } from '../utils/dateUtils';
 
 const WashFoldComponent = () => {
   const [selectedService, setSelectedService] = useState('WASH & FOLD');
-  const [address, setAddress] = useState('');
+  const [selectedTimeSlot, setSelectedTimeSlot] = useState<TimeSlot | null>(null);
+  const [location, setLocation] = useState('');
+  const [availableSlots, setAvailableSlots] = useState<TimeSlot[]>([]);
+  const router = useRouter();
+
+  const locations = ['Ruiru', 'Kikuyu', 'Kasarani'];
+
+  useEffect(() => {
+    const slots = generateTimeSlots();
+    setAvailableSlots(slots);
+    if (slots.length > 0) {
+      setSelectedTimeSlot(slots[0]);
+    }
+  }, []);
+
+  const handleBookingSubmit = () => {
+    if (location && selectedTimeSlot) {
+      const bookingData = {
+        timeSlot: selectedTimeSlot,
+        location
+      };
+      localStorage.setItem('bookingData', JSON.stringify(bookingData));
+      router.push('/booking');
+    }
+  };
 
   const services = [
     {
@@ -67,7 +93,7 @@ const WashFoldComponent = () => {
                 doing laundry and save your time and your sanity.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
-                Rinse will pickup, clean, and deliver your laundry right back to 
+                Fua will pickup, clean, and deliver your laundry right back to 
                 your door. Your clothes get their own machine, are cleaned 
                 according to your preferences, and delivered neatly folded - 
                 we even pair your socks.
@@ -77,23 +103,40 @@ const WashFoldComponent = () => {
             {/* Booking Form */}
             <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-200">
               <div className="grid grid-cols-2 gap-6 mb-6">
-                <div>
+                <div className="text-left">
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
                     Pickup
                   </label>
-                  <p className="text-gray-900 font-medium">Tonight</p>
+                  <select
+                    value={selectedTimeSlot?.id || ''}
+                    onChange={(e) => {
+                      const slot = availableSlots.find(s => s.id === e.target.value);
+                      setSelectedTimeSlot(slot || null);
+                    }}
+                    className="w-full text-gray-900 font-medium text-lg bg-transparent border-none outline-none appearance-none cursor-pointer"
+                  >
+                    {availableSlots.map(slot => (
+                      <option key={slot.id} value={slot.id}>
+                        {slot.label}
+                      </option>
+                    ))}
+                  </select>
                 </div>
-                <div>
+                <div className="text-left">
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
                     Where
                   </label>
-                  <input
-                    type="text"
-                    value={address}
-                    onChange={(e) => setAddress(e.target.value)}
-                    placeholder="Add address"
-                    className="w-full text-gray-900 placeholder-gray-400 border-none outline-none bg-transparent"
-                  />
+                  <select
+                    value={location}
+                    onChange={(e) => setLocation(e.target.value)}
+                    className="w-full text-gray-900 placeholder-gray-400 border-none outline-none bg-transparent text-lg font-medium appearance-none cursor-pointer"
+                  >
+                    <option value="">Add address</option>
+                    {locations.map(loc => (
+                      <option key={loc} value={loc}>{loc}</option>
+                    ))}
+                  </select>
+                  <div className="h-px bg-gray-200 mt-1"></div>
                 </div>
               </div>
               
@@ -101,7 +144,11 @@ const WashFoldComponent = () => {
                 <div className="bg-emerald-50 text-emerald-700 px-4 py-2 rounded-lg text-sm font-medium">
                   Your $20 off in credits will be automatically applied
                 </div>
-                <button className="bg-amber-400 hover:bg-amber-500 text-black p-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+                <button 
+                  onClick={handleBookingSubmit}
+                  disabled={!location || !selectedTimeSlot}
+                  className="bg-amber-400 hover:bg-amber-500 disabled:bg-gray-300 disabled:cursor-not-allowed text-black p-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+                >
                   <ChevronRight size={24} />
                 </button>
               </div>

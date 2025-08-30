@@ -8,7 +8,7 @@ const RinseRepeatComponent: React.FC = () => {
       <div className="max-w-4xl mx-auto text-center space-y-8">
         {/* Logo/Brand */}
         <div className="text-sm font-medium text-gray-400 tracking-widest uppercase mb-8">
-          RINSE REPEAT
+          FUA REPEAT
         </div>
         
         {/* Main Headline */}
@@ -19,10 +19,10 @@ const RinseRepeatComponent: React.FC = () => {
         {/* Description */}
         <div className="space-y-4 max-w-2xl mx-auto">
           <p className="text-xl md:text-2xl text-gray-800 font-medium">
-            Save 3+ hours per week while Rinse cares for your clothes.
+            Save 3+ hours per week while Fua cares for your clothes.
           </p>
           <p className="text-xl md:text-2xl text-gray-800 font-medium">
-            Free pickup and delivery with no fees with all Rinse Repeat plans.
+            Free pickup and delivery with no fees with all Fua Repeat plans.
           </p>
           <p className="text-xl md:text-2xl text-teal-500 font-semibold">
             Plans start as low as $59/bag.
@@ -38,7 +38,7 @@ const RinseRepeatComponent: React.FC = () => {
               console.log('Get started clicked');
             }}
           >
-            Get started with Rinse Repeat
+            Get started with Fua Repeat
           </button>
         </div>
       </div>

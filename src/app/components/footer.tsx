@@ -92,7 +92,7 @@ const Footer: React.FC = () => {
           {/* Download Our App */}
           <div>
             <h3 className="text-white font-semibold mb-4">Download our app</h3>
-            <p className="mb-4">The <span className="text-orange-500 font-medium">Rinse mobile app</span> is the most convenient way to enjoy all Rinse services.</p>
+            <p className="mb-4">The <span className="text-orange-500 font-medium">Fua mobile app</span> is the most convenient way to enjoy all Fua services.</p>
             <div className="flex space-x-3">
               <a href="#" aria-label="Download on the App Store">
                 <img src="https://www.rinse.com/images/apple_store.svg" alt="App Store" className="h-10 w-auto" />
@@ -105,7 +105,7 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="mt-12 pt-8 border-t border-gray-800 text-center text-xs">
-          <p>Copyright &copy; 2025 Rinse, Inc. All Rights Reserved</p>
+          <p>Copyright &copy; 2025 Fua, Inc. All Rights Reserved</p>
         </div>
       </div>
     </footer>

@@ -1,4 +1,4 @@
-"use client";
+"use client"; 
 
 import React, { useState } from 'react';
 import { ChevronRight } from 'lucide-react';
@@ -61,7 +61,7 @@ const HeroCTAComponent = () => {
         {/* Disclaimer */}
         <div className="mt-8">
           <p className="text-white/70 text-sm max-w-2xl mx-auto leading-relaxed">
-            * The price per pound shown above for Rinse Repeat is based on a 4-bag plan, billed annually.
+            * The price per pound shown above for Fua Repeat is based on a 4-bag plan, billed annually.
           </p>
         </div>
       </div>

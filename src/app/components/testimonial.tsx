@@ -16,19 +16,19 @@ const TestimonialsSection: React.FC<TestimonialsProps> = ({ testimonials }) => {
   const defaultTestimonials: Testimonial[] = [
     {
       id: 1,
-      quote: "Rinse makes everything very easy. I don't have to worry about my laundry getting done. I just throw everything in the bag, it gets washed and know the valets will do a good job.",
+      quote: "  Fua makes everything very easy. I don't have to worry about my laundry getting done. I just throw everything in the bag, it gets washed and know the valets will do a good job.",
       name: "Jennifer K.",
       location: "Chicago"
     },
     {
       id: 2,
-      quote: "I love the Rinse Repeat 'if it fits, we will wash it' concept. Rinse's valets are also polite and helpful.",
+      quote: "I love the Fua Repeat 'if it fits, we will wash it' concept. Fua's valets are also polite and helpful.",
       name: "Alice Y.",
       location: "San Francisco"
     },
     {
       id: 3,
-      quote: "I love how Rinse folds all the clothes and towels so perfectly. I'm especially impressed with how they fold my fitted sheets! My laundry always comes out smelling fresh and amazing, and I've never lost an item.",
+      quote: "I love how Fua folds all the clothes and towels so perfectly. I'm especially impressed with how they fold my fitted sheets! My laundry always comes out smelling fresh and amazing, and I've never lost an item.",
       name: "Allison H.",
       location: "San Francisco"
     }

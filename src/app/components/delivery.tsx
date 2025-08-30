@@ -33,8 +33,8 @@ const DeliveryComponent = () => {
               </h2>
               
               <div className="space-y-4 text-lg text-gray-700 mb-8">
-                <p>All pickups and deliveries are between 8pm and 10pm.</p>
-                <p>At 5:30pm, we'll text you a 30-minute arrival window of your Valet.</p>
+                <p>All pickups and deliveries are within 15 minutes of your order.</p>
+                <p> we'll text you a 30-minute arrival window of your Valet.</p>
               </div>
             </div>
 
@@ -44,7 +44,7 @@ const DeliveryComponent = () => {
                 Not available in the evening? No problem!
               </h3>
               <p className="text-gray-600 leading-relaxed mb-6">
-                After creating your account, activate Rinse Drop for personless pickup and delivery. 
+                After creating your account, activate Fua Drop for personless pickup and delivery. 
                 Our Valet will pick up and deliver your order to your doorstep, building reception, 
                 or another place of your choosing.
               </p>
@@ -83,7 +83,7 @@ const DeliveryComponent = () => {
                     <div className="relative">
                       <div className="w-20 h-12 bg-gray-800 rounded-lg mx-auto shadow-lg">
                         <div className="absolute inset-2 bg-teal-600 rounded text-white text-xs flex items-center justify-center font-bold">
-                          RINSE
+                          FUA
                         </div>
                       </div>
                       <p className="text-sm text-gray-600 mt-2 font-medium">Clean laundry delivery</p>

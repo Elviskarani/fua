@@ -17,14 +17,14 @@ const CustomerTestimonials: React.FC<CustomerTestimonialsProps> = ({ className =
     {
       id: 1,
       name: "Henna M.",
-      quote: "I've used Rinse in every city I've lived in and I am OBSESSED. It's so convenient, whatever detergent they use smells amazing, and all of my delivery people have been so friendly. Highly recommend!",
-      avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=64&h=64&fit=crop&crop=face",
+      quote: "I've used Fua in every city I've lived in and I am OBSESSED. It's so convenient, whatever detergent they use smells amazing, and all of my delivery people have been so friendly. Highly recommend!",
+      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=64&h=64&fit=crop&crop=face",
       bgColor: "bg-teal-700"
     },
     {
       id: 2,
       name: "Brandon G.",
-      quote: "Rinse is the most reliable and convenient wash and fold delivery service in NYC. Clothes always come back perfectly clean. I also trust them with my dry cleaning, even my nicest things.",
+      quote: "Fua is the most reliable and convenient wash and fold delivery service in NYC. Clothes always come back perfectly clean. I also trust them with my dry cleaning, even my nicest things.",
       avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=64&h=64&fit=crop&crop=face",
       bgColor: "bg-teal-400"
     },
@@ -38,7 +38,7 @@ const CustomerTestimonials: React.FC<CustomerTestimonialsProps> = ({ className =
     {
       id: 4,
       name: "Dylan A.",
-      quote: "I'm all about Rinse. I actually have laundry in building now, but can't kick how easy Rinse makes it. Great service - don't know why people still do their own laundry.",
+      quote: "I'm all about Fua. I actually have laundry in building now, but can't kick how easy Fua makes it. Great service - don't know why people still do their own laundry.",
       avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=64&h=64&fit=crop&crop=face",
       bgColor: "bg-orange-500"
     }
