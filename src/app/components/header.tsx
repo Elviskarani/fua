@@ -74,7 +74,7 @@ const Header = () => {
 
   // Simple conditional classes based on current state
   const headerBg = () => {
-    if (!isHomePage || !isMenuOpen) {
+    if (!isHomePage || isMenuOpen) {
       return 'bg-white/90 backdrop-blur-lg border-b border-gray-200'
     }
     return scrolled 
