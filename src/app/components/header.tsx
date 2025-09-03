@@ -133,7 +133,7 @@ const Header = () => {
               Services & Pricing
             </NavLink>
             <NavLink href="/rinse" pathname={pathname} textColor={getTextColor()}>
-              Rinse
+              Fua Drop
             </NavLink>
           </nav>
 
@@ -190,7 +190,7 @@ const Header = () => {
                   textColor="text-gray-900"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Rinse
+                  Fua Drop
                 </NavLink>
                 
                 {/* Mobile-only phone link removed */}

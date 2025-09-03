@@ -40,7 +40,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className = '' }) => {
     };
 
     return (
-        <section className={`relative min-h-screen flex items-center ${className}`}>
+        <section className={`relative min-h-screen ${className}`}>
             {/* Background Image */}
             <div className="absolute inset-0 z-0">
                 <div className="w-full h-full bg-gradient-to-br from-orange-50 to-blue-50 opacity-80"></div>
@@ -139,7 +139,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className = '' }) => {
                             </div>
                         </div>
 
-                        {/* Social Proof */}
+                        {/* Social Proof soon to be added*/}
                     </div>
                 </div>
             </div>

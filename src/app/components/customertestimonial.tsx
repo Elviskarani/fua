@@ -18,21 +18,21 @@ const CustomerTestimonials: React.FC<CustomerTestimonialsProps> = ({ className =
       id: 1,
       name: "Henna M.",
       quote: "I've used Fua in every city I've lived in and I am OBSESSED. It's so convenient, whatever detergent they use smells amazing, and all of my delivery people have been so friendly. Highly recommend!",
-      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=64&h=64&fit=crop&crop=face",
+      avatar: "https://img.freepik.com/free-photo/beautiful-african-woman-face-portrait-close-up_53876-148041.jpg?semt=ais_incoming&w=740&q=80",
       bgColor: "bg-teal-700"
     },
     {
       id: 2,
-      name: "Brandon G.",
-      quote: "Fua is the most reliable and convenient wash and fold delivery service in NYC. Clothes always come back perfectly clean. I also trust them with my dry cleaning, even my nicest things.",
-      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=64&h=64&fit=crop&crop=face",
+      name: "Brandon.",
+      quote: "Fua is the most reliable and convenient wash and fold delivery service in Kikuyu. Clothes always come back perfectly clean. I also trust them with my dry cleaning, even my nicest things.",
+      avatar: "https://img.freepik.com/free-photo/close-up-upset-american-black-person_23-2148749582.jpg?semt=ais_incoming&w=740&q=80",
       bgColor: "bg-teal-400"
     },
     {
       id: 3,
       name: "Isabelle S.",
       quote: "This is the only laundry and dry cleaning service I'll ever use in the city. Such a professional and vip experience plus the pick up and delivery were both so quick. Love this service!",
-      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=64&h=64&fit=crop&crop=face",
+      avatar: "https://www.shutterstock.com/image-photo/young-adult-happy-black-woman-600nw-2365845703.jpg",
       bgColor: "bg-yellow-400"
     },
     {
