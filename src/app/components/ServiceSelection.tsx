@@ -14,6 +14,7 @@ interface BookingData {
   phone: string;
   email: string;
   selectedServices: string[];
+  rushServices: string[];
 }
 
 interface Props {
@@ -43,14 +44,14 @@ const ServiceSelection: React.FC<Props> = ({
       id: 'wash-fold',
       name: 'Wash & Fold',
       icon: '👕',
-      price: 'KSh 200',
+      price: 'Ksh 100/kg',
       deliveryTime: 'Next day delivery'
     },
     {
       id: 'dry-cleaning',
       name: 'Dry Cleaning',
       icon: '🧥',
-      price: 'KSh 200',
+      price: 'ksh 500',
       deliveryTime: '2-day delivery'
     }
   ];
@@ -74,19 +75,75 @@ const ServiceSelection: React.FC<Props> = ({
     updateBookingData({ selectedServices: updatedServices });
   };
 
+  const toggleRushService = (serviceId: string) => {
+    // Only allow rush service if the service is already selected
+    if (!bookingData.selectedServices.includes(serviceId)) return;
+    
+    const updatedRushServices = bookingData.rushServices?.includes(serviceId)
+      ? (bookingData.rushServices || []).filter(id => id !== serviceId)
+      : [...(bookingData.rushServices || []), serviceId];
+      
+    updateBookingData({ rushServices: updatedRushServices });
+  };
+
   const handleTimeUpdate = (newTimeSlot: TimeSlot) => {
     updateBookingData({ timeSlot: newTimeSlot });
     setShowTimeModal(false);
   };
 
+  const sendWhatsAppMessage = () => {
+    const phoneNumber = "254716937165"; // Kenya format
+    
+    // Get selected service details
+    const selectedServiceDetails = bookingData.selectedServices.map(serviceId => {
+      const service = services.find(s => s.id === serviceId);
+      return service ? `${service.name} (${service.price})` : serviceId;
+    }).join(', ');
+
+    // Format pickup time
+    const pickupTime = bookingData.timeSlot ? formatPickupDisplay(bookingData.timeSlot) : 'Not specified';
+    
+    // Create the message
+    const message = `🧺 *New Laundry Booking Request*
+
+*Customer Details:*
+📝 Name: ${bookingData.firstName} ${bookingData.lastName}
+📞 Phone: ${bookingData.phone}
+📧 Email: ${bookingData.email}
+
+*Pickup Information:*
+🕐 Time: ${pickupTime}
+📍 Location: ${bookingData.location}
+
+*Services Selected:*
+${selectedServiceDetails}
+
+*Total Services:* ${bookingData.selectedServices.length}
+
+Please confirm this booking request. Thank you! 🙏`;
+
+    // Encode the message for URL
+    const encodedMessage = encodeURIComponent(message);
+    
+    // Create WhatsApp URL
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    
+    // Open WhatsApp
+    window.open(whatsappUrl, '_blank');
+  };
+
   const handleContinue = () => {
     if (bookingData.selectedServices.length > 0) {
+      // Send WhatsApp message first
+      sendWhatsAppMessage();
+      
+      // Then proceed to next step
       setCurrentStep(3);
     }
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-4 mt-10">
+    <div className="min-h-screen bg-gray-50 p-4">
       <div className="max-w-lg mx-auto pt-8">
         {/* Header */}
         <div className="flex items-center mb-8">
@@ -145,7 +202,9 @@ const ServiceSelection: React.FC<Props> = ({
               key={service.id}
               service={service}
               isSelected={bookingData.selectedServices.includes(service.id)}
+              isRushSelected={bookingData.rushServices?.includes(service.id) || false}
               onToggle={() => toggleService(service.id)}
+              onRushToggle={() => toggleRushService(service.id)}
             />
           ))}
         </div>

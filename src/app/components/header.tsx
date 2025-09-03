@@ -48,17 +48,30 @@ const NavLink = ({
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isClient, setIsClient] = useState(false)
   const pathname = usePathname()
   const isHomePage = pathname === '/'
 
-  // Add scroll listener
+  // Initialize scroll state and set client-side flag
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
+    // Only run on client
+    if (typeof window !== 'undefined') {
+      setIsClient(true)
+      const handleScroll = () => {
+        setIsScrolled(window.scrollY > 10)
+      }
+      
+      // Initial check after a small delay to ensure DOM is ready
+      const timer = setTimeout(() => {
+        handleScroll()
+      }, 0)
 
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+      window.addEventListener('scroll', handleScroll, { passive: true })
+      return () => {
+        clearTimeout(timer)
+        window.removeEventListener('scroll', handleScroll)
+      }
+    }
   }, [])
 
   const toggleMenu = () => {
@@ -66,13 +79,16 @@ const Header = () => {
   }
 
   const getHeaderBackground = () => {
-    if (isHomePage) {
-      if (isMenuOpen || isScrolled) {
-        return 'bg-white/95 backdrop-blur-sm border-b border-gray-200'
-      }
+    // Always show solid background when menu is open or not on home page
+    if (isMenuOpen || !isHomePage) {
+      return 'bg-white/95 backdrop-blur-sm border-b border-gray-200'
+    }
+    // On home page, show transparent background only when at the top
+    if (isHomePage && !isScrolled) {
       return 'bg-transparent'
     }
-    return 'bg-white border-b border-gray-200'
+    // When scrolled, show solid background with blur
+    return 'bg-white/95 backdrop-blur-sm border-b border-gray-200'
   }
 
   const getTextColor = () => {
@@ -88,23 +104,25 @@ const Header = () => {
   }
 
   return (
-    <>
-      <header className={`sticky top-0 z-50 transition-all duration-300 ${getHeaderBackground()}`}>
-        <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 py-4">
+    <header className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${getHeaderBackground()}`}>
+      <div className="relative">
+        <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 py-3">
           
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-            <div className="relative w-10 h-10 sm:w-12 sm:h-12">
-              <Image
-                src="/logofua.png"
-                alt="FUA Logo"
-                fill
-                className={`object-contain rounded-md transition-all duration-300 ${getLogoFilter()}`}
-                sizes="(max-width: 640px) 40px, 48px"
-                priority
-              />
+            <div className="relative w-12 h-12 sm:w-14 sm:h-14">
+              <div className="relative w-full h-full">
+                <Image
+                  src="/fuaadjicon.png"
+                  alt="FUA Logo"
+                  fill
+                  sizes="(max-width: 640px) 48px, 56px"
+                  className={`object-contain rounded-md transition-all duration-300 ${getLogoFilter()}`}
+                  priority
+                />
+              </div>
             </div>
-            <span className={`font-bold text-lg sm:text-xl ${getTextColor()}`}>
+            <span className={`font-bold text-base sm:text-lg ${getTextColor()}`}>
               FUA
             </span>
           </Link>
@@ -180,8 +198,8 @@ const Header = () => {
             </div>
           </nav>
         )}
-      </header>
-    </>
+      </div>
+    </header>
   )
 }
 

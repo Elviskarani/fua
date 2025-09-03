@@ -49,8 +49,9 @@ export default function RootLayout({
         className={`${avenirNext.variable} font-sans antialiased overflow-x-hidden`}
       >
         <Header/>
-        
-        {children}
+        <main className="pt-20">
+          {children}
+        </main>
         <Footer/>
       </body>
     </html>

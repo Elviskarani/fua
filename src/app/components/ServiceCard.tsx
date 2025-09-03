@@ -14,10 +14,18 @@ interface Service {
 interface Props {
   service: Service;
   isSelected: boolean;
+  isRushSelected: boolean;
   onToggle: () => void;
+  onRushToggle: () => void;
 }
 
-const ServiceCard: React.FC<Props> = ({ service, isSelected, onToggle }) => {
+const ServiceCard: React.FC<Props> = ({ 
+  service, 
+  isSelected, 
+  isRushSelected, 
+  onToggle, 
+  onRushToggle 
+}) => {
   return (
     <div className="bg-white rounded-lg border border-orange-200 p-4 mb-4">
       <div className="flex items-center justify-between">
@@ -32,9 +40,6 @@ const ServiceCard: React.FC<Props> = ({ service, isSelected, onToggle }) => {
                   DELIVERY
                 </div>
                 <div className="font-medium">{service.deliveryTime}</div>
-                <div className="text-green-600 font-medium">
-                  RUSH {service.price}
-                </div>
               </div>
             )}
           </div>
@@ -57,6 +62,38 @@ const ServiceCard: React.FC<Props> = ({ service, isSelected, onToggle }) => {
           )}
         </button>
       </div>
+      
+      {/* Rush Option - Only show when service is selected */}
+      {isSelected && (
+        <div className="mt-4 pt-4 border-t border-gray-100">
+          <div className="flex items-center justify-between">
+            <div>
+              <div className="font-medium text-sm text-gray-700">Rush Service</div>
+              <div className="text-xs text-gray-500">
+                {service.id === 'wash-fold' 
+                  ? 'Faster processing (price determined on-site)' 
+                  : `Faster processing + ${service.price}`
+                }
+              </div>
+            </div>
+            <button
+              onClick={onRushToggle}
+              className={`px-4 py-1 rounded-md text-sm font-medium transition-all ${
+                isRushSelected
+                  ? 'bg-green-500 text-white'
+                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+              }`}
+            >
+              {isRushSelected ? '⚡ Rush ON' : 'Add Rush'}
+            </button>
+          </div>
+          {isRushSelected && (
+            <div className="mt-2 text-green-600 font-medium text-sm">
+              ⚡ RUSH SERVICE - Priority processing activated
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 };

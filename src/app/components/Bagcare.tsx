@@ -18,9 +18,9 @@ const BagCareSection: React.FC<BagCareSectionProps> = ({
           <div className="block md:hidden w-full space-y-4">
             {/* Rinse Bag - Mobile */}
             <div className="flex justify-center">
-              {rinseBagImage ? (
+              {fuaBagImage ? (
                 <img
-                  src={rinseBagImage}
+                  src={fuaBagImage}
                   alt="Rinse wash and fold bag"
                   className="w-64 h-40 object-contain"
                 />
@@ -72,9 +72,9 @@ const BagCareSection: React.FC<BagCareSectionProps> = ({
 
             {/* Rinse Bag - Large, positioned left-center, overlaps clothes */}
             <div className="absolute left-0 top-1/2 transform -translate-y-1/2 z-20">
-              {rinseBagImage ? (
+              {fuaBagImage ? (
                 <img
-                  src={rinseBagImage}
+                  src={fuaBagImage}
                   alt="Rinse wash and fold bag"
                   className="w-96 h-56 sm:w-112 sm:h-64 md:w-128 md:h-72 lg:w-144 lg:h-80 object-contain"
                   style={{ filter: 'none' }}

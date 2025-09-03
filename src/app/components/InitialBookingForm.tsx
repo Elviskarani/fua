@@ -1,5 +1,6 @@
 import React from 'react';
 import { ChevronDown } from 'lucide-react';
+import { TimeSlot } from '../utils/dateUtils';
 import { BookingData } from './BookingForm';
 
 interface Props {
@@ -20,8 +21,14 @@ const InitialBookingForm: React.FC<Props> = ({
     updateBookingData({ location });
   };
 
-  const handleTimeChange = (pickupTime: string) => {
-    updateBookingData({ pickupTime });
+  const handleTimeChange = (timeOption: string) => {
+    const timeSlot: TimeSlot = {
+      id: timeOption.toLowerCase(),
+      label: timeOption,
+      date: new Date(),
+      isAvailable: true
+    };
+    updateBookingData({ timeSlot });
   };
 
   const handleSubmit = () => {
@@ -53,10 +60,11 @@ const InitialBookingForm: React.FC<Props> = ({
               </label>
               <div className="relative">
                 <select
-                  value={bookingData.pickupTime}
+                  value={bookingData.timeSlot?.label || ''}
                   onChange={(e) => handleTimeChange(e.target.value)}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-200 focus:border-orange-500 text-gray-900 appearance-none cursor-pointer hover:border-orange-400 transition-colors pr-10"
                 >
+                  <option value="">Select a time</option>
                   {timeOptions.map(time => (
                     <option key={time} value={time}>{time}</option>
                   ))}
