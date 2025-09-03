@@ -1,13 +1,14 @@
 "use client";
 import React from 'react';
 import Image from 'next/image';
-import router from 'next/router';
+import { useRouter } from 'next/navigation';
 
 interface WashFoldSectionProps {
 className?: string;
 }
 
 const WashFoldSection: React.FC<WashFoldSectionProps> = ({ className = '' }) => {
+const router = useRouter();
 return (
 <section className={`py-20 bg-white ${className}`}>
 <div className="container mx-auto px-4">

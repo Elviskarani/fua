@@ -1,7 +1,10 @@
+'use client';
 import React from 'react';
 import { Star, Info } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 const PricingComponent = () => {
+  const router = useRouter();
   const customerAvatars = [
     { id: 1, bg: 'bg-orange-400' },
     { id: 2, bg: 'bg-blue-400' },
@@ -93,7 +96,9 @@ const PricingComponent = () => {
                   </div>
                 </div>
 
-                <button className="w-full py-3 px-6 border border-gray-300 text-gray-700 font-medium rounded-xl hover:bg-gray-50 transition-colors duration-200">
+                <button 
+                onClick={() => router.push('/booking')}
+                className="w-full py-3 px-6 border border-gray-300 text-gray-700 font-medium rounded-xl hover:bg-gray-50 transition-colors duration-200">
                   Schedule a pickup
                 </button>
               </div>

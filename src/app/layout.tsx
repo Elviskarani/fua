@@ -43,7 +43,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${avenirNext.variable} font-sans antialiased`}
+        className={`${avenirNext.variable} font-sans antialiased overflow-x-hidden`}
       >
         <Header/>
         

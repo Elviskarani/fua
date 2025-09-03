@@ -21,7 +21,7 @@ interface Props {
 
 const Confirmation: React.FC<Props> = ({ bookingData, resetBooking }) => {
   return (
-    <div className="min-h-screen bg-gray-50 p-4">
+    <div className="min-h-screen bg-gray-50 p-4 mt-10">
       <div className="max-w-lg mx-auto pt-8">
         <div className="text-center mb-8">
           <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">

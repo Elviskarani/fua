@@ -103,24 +103,29 @@ const WashFoldComponent = () => {
             {/* Booking Form */}
             <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-200">
               <div className="grid grid-cols-2 gap-6 mb-6">
-                <div className="text-left">
+                <div className="text-left relative">
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
                     Pickup
                   </label>
-                  <select
-                    value={selectedTimeSlot?.id || ''}
-                    onChange={(e) => {
-                      const slot = availableSlots.find(s => s.id === e.target.value);
-                      setSelectedTimeSlot(slot || null);
-                    }}
-                    className="w-full text-gray-900 font-medium text-lg bg-transparent border-none outline-none appearance-none cursor-pointer"
-                  >
-                    {availableSlots.map(slot => (
-                      <option key={slot.id} value={slot.id}>
-                        {slot.label}
-                      </option>
-                    ))}
-                  </select>
+                  <div className="relative">
+                    <select
+                      value={selectedTimeSlot?.id || ''}
+                      onChange={(e) => {
+                        const slot = availableSlots.find(s => s.id === e.target.value);
+                        setSelectedTimeSlot(slot || null);
+                      }}
+                      className="w-full text-gray-900 font-medium text-lg bg-white border border-gray-300 rounded-lg px-4 py-3 pr-10 appearance-none cursor-pointer hover:border-orange-400 focus:ring-2 focus:ring-orange-200 focus:border-orange-500 transition-colors"
+                    >
+                      {availableSlots.map(slot => (
+                        <option key={slot.id} value={slot.id}>
+                          {slot.label}
+                        </option>
+                      ))}
+                    </select>
+                    <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
+                      <ChevronDown size={20} className="text-gray-500" />
+                    </div>
+                  </div>
                 </div>
                 <div className="text-left">
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
@@ -142,7 +147,7 @@ const WashFoldComponent = () => {
               
               <div className="flex items-center justify-between">
                 <div className="bg-emerald-50 text-emerald-700 px-4 py-2 rounded-lg text-sm font-medium">
-                  Your $20 off in credits will be automatically applied
+                  Your 50ksh off in credits will be automatically applied
                 </div>
                 <button 
                   onClick={handleBookingSubmit}

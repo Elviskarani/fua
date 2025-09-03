@@ -23,7 +23,7 @@ const DynamicTimeModal: React.FC<Props> = ({ isOpen, currentTimeSlot, onTimeSele
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+    <div className="fixed inset-0 bg-gray-100 flex items-center justify-center z-50 p-4">
       <div className="bg-white rounded-lg max-w-sm w-full p-6">
         <h3 className="text-lg font-semibold mb-4">Select Pickup Time</h3>
         <div className="space-y-2">

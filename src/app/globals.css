@@ -6,6 +6,11 @@
 
 body {
   font-family: var(--font-avenir-next);
+  overflow-x: hidden;
+}
+
+html {
+  overflow-x: hidden;
 }
 
 

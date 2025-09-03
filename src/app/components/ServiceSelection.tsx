@@ -86,7 +86,7 @@ const ServiceSelection: React.FC<Props> = ({
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-4">
+    <div className="min-h-screen bg-gray-50 p-4 mt-10">
       <div className="max-w-lg mx-auto pt-8">
         {/* Header */}
         <div className="flex items-center mb-8">

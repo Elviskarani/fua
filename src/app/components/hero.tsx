@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { ChevronDown } from 'lucide-react';
 import { generateTimeSlots, TimeSlot } from '../utils/dateUtils';
 
 interface HeroSectionProps {
@@ -67,19 +68,19 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className = '' }) => {
                         </p>
 
                         {/* Updated Dynamic Booking Form */}
-                        <div className="bg-white rounded-full h-full shadow-[0_0_1px_rgba(0,0,0,0.12),0_0_2px_rgba(0,0,0,0.12),0_4px_16px_rgba(0,0,0,0.12)] text-black flex justify-between max-w-[420px] px-3 py-1 pl-3 pr-1">
+                        <div className="bg-white rounded-full shadow-[0_0_1px_rgba(0,0,0,0.12),0_0_2px_rgba(0,0,0,0.12),0_4px_16px_rgba(0,0,0,0.12)] text-black flex justify-between max-w-[480px] px-4 py-2">
                             <div className="flex items-center w-full">
                                 {/* Dynamic Pickup Time */}
-                                <div className="flex-1 px-2 py-2">
-                                    <div className="text-left">
-                                        <div className="text-sm font-semibold text-gray-900 mb-1">Pickup</div>
+                                <div className="flex-1 px-2 py-1">
+                                    <div className="relative">
+                                        <div className="text-xs font-medium text-gray-500 mb-1">Pickup</div>
                                         <select
                                             value={selectedTimeSlot?.id || ''}
                                             onChange={(e) => {
                                                 const slot = availableSlots.find(s => s.id === e.target.value);
                                                 setSelectedTimeSlot(slot || null);
                                             }}
-                                            className="w-full text-sm text-gray-600 bg-transparent border-none outline-none appearance-none cursor-pointer"
+                                            className="w-full text-sm font-medium text-gray-800 bg-transparent border-none outline-none appearance-none cursor-pointer pr-6 py-1"
                                         >
                                             {availableSlots.map(slot => (
                                                 <option key={slot.id} value={slot.id}>
@@ -87,26 +88,34 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className = '' }) => {
                                                 </option>
                                             ))}
                                         </select>
+                                        <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none">
+                                            <ChevronDown size={16} className="text-gray-400" />
+                                        </div>
                                     </div>
                                 </div>
 
                                 {/* Divider */}
-                                <div className="w-px h-12 bg-gray-200"></div>
+                                <div className="w-px h-8 bg-gray-200 my-2"></div>
 
                                 {/* Location Dropdown */}
-                                <div className="flex-1 px-2 py-2">
-                                    <div className="text-left">
-                                        <div className="text-sm font-semibold text-gray-900 mb-1">Where</div>
+                                <div className="flex-1 px-2 py-1">
+                                    <div className="relative">
+                                        <div className="text-xs font-medium text-gray-500 mb-1">Where</div>
                                         <select
                                             value={location}
                                             onChange={(e) => setLocation(e.target.value)}
-                                            className="w-full text-sm text-gray-600 bg-transparent border-none outline-none appearance-none cursor-pointer"
+                                            className="w-full text-sm font-medium text-gray-800 bg-transparent border-none outline-none appearance-none cursor-pointer pr-6 py-1"
                                         >
                                             <option value="">Add address</option>
                                             {locations.map(loc => (
-                                                <option key={loc} value={loc}>{loc}</option>
+                                                <option key={loc} value={loc}>
+                                                    {loc}
+                                                </option>
                                             ))}
                                         </select>
+                                        <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none">
+                                            <ChevronDown size={16} className="text-gray-400" />
+                                        </div>
                                     </div>
                                 </div>
 
@@ -115,9 +124,16 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className = '' }) => {
                                     onClick={handleBookingSubmit}
                                     disabled={!location || !selectedTimeSlot}
                                     className="bg-orange-500 hover:bg-orange-600 disabled:bg-gray-300 disabled:cursor-not-allowed text-white p-3 rounded-full transition-all duration-200 transform hover:scale-105 shadow-lg ml-2"
+                                    style={{
+                                        minWidth: '44px',
+                                        height: '44px',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center'
+                                    }}
                                 >
-                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                                     </svg>
                                 </button>
                             </div>

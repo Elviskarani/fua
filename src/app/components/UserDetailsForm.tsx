@@ -81,7 +81,7 @@ const UserDetailsForm: React.FC<Props> = ({
                 value={bookingData.firstName}
                 onChange={(e) => handleInputChange('firstName', e.target.value)}
                 className="w-full px-4 py-3 bg-gray-100 border-0 rounded-lg focus:ring-2 focus:ring-orange-500 focus:bg-white"
-                placeholder="Levi"
+                placeholder="first name"
               />
             </div>
             <div>
@@ -91,7 +91,7 @@ const UserDetailsForm: React.FC<Props> = ({
                 value={bookingData.lastName}
                 onChange={(e) => handleInputChange('lastName', e.target.value)}
                 className="w-full px-4 py-3 bg-gray-100 border-0 rounded-lg focus:ring-2 focus:ring-orange-500 focus:bg-white"
-                placeholder="kigunda"
+                placeholder="last name"
               />
             </div>
           </div>
@@ -103,7 +103,7 @@ const UserDetailsForm: React.FC<Props> = ({
               value={bookingData.phone}
               onChange={(e) => handleInputChange('phone', e.target.value)}
               className="w-full px-4 py-3 bg-gray-100 border-0 rounded-lg focus:ring-2 focus:ring-orange-500 focus:bg-white"
-              placeholder="+254 712 345 678"
+              placeholder="phone number"
             />
           </div>
 
@@ -114,7 +114,7 @@ const UserDetailsForm: React.FC<Props> = ({
               value={bookingData.email}
               onChange={(e) => handleInputChange('email', e.target.value)}
               className="w-full px-4 py-3 bg-gray-100 border-0 rounded-lg focus:ring-2 focus:ring-orange-500 focus:bg-white"
-              placeholder="levimaxkigunda@gmail.com"
+              placeholder="email"
             />
           </div>
 
