@@ -43,11 +43,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className = '' }) => {
         <section className={`relative min-h-screen ${className}`}>
             {/* Background Image */}
             <div className="absolute inset-0 z-0">
-                <div className="w-full h-full bg-gradient-to-br from-orange-50 to-blue-50 opacity-80"></div>
+                <div className="w-full h-full bg-black"></div>
                 <div
-                    className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60"
+                    className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                     style={{
-                        backgroundImage: `url('/fuabg.png')`
+                        backgroundImage: `url('/fuabg.png')`,
+                        opacity: 0.7
                     }}
                 />
             </div>
@@ -57,13 +58,13 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className = '' }) => {
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     {/* Left Column - Text Content */}
                     <div className="max-w-2xl">
-                        <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
+                        <h1 className="text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
                             The Smartest Way
                             <br />
                             <span className="text-orange-500">to Do Laundry</span>
                         </h1>
 
-                        <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+                        <p className="text-xl text-white mb-8 leading-relaxed">
                             Fua picks up, cleans, and delivers your laundry and dry cleaning.
                         </p>
 
@@ -73,7 +74,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className = '' }) => {
                                 {/* Dynamic Pickup Time */}
                                 <div className="flex-1 px-2 py-1">
                                     <div className="relative">
-                                        <div className="text-xs font-medium text-gray-500 mb-1">Pickup</div>
+                                        <div className="text-xs font-medium text-black-500 mb-1">Pickup</div>
                                         <select
                                             value={selectedTimeSlot?.id || ''}
                                             onChange={(e) => {
@@ -100,7 +101,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className = '' }) => {
                                 {/* Location Dropdown */}
                                 <div className="flex-1 px-2 py-1">
                                     <div className="relative">
-                                        <div className="text-xs font-medium text-gray-500 mb-1">Where</div>
+                                        <div className="text-xs font-medium text-black mb-1">Where</div>
                                         <select
                                             value={location}
                                             onChange={(e) => setLocation(e.target.value)}

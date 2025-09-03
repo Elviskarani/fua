@@ -4,7 +4,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
-import { PhoneCall, User } from "lucide-react"
 
 interface NavLinkProps {
   href: string
@@ -47,64 +46,44 @@ const NavLink = ({
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isClient, setIsClient] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
   const isHomePage = pathname === '/'
 
-  // Initialize scroll state and set client-side flag
   useEffect(() => {
-    // Only run on client
-    if (typeof window !== 'undefined') {
-      setIsClient(true)
-      const handleScroll = () => {
-        setIsScrolled(window.scrollY > 10)
-      }
-      
-      // Initial check after a small delay to ensure DOM is ready
-      const timer = setTimeout(() => {
-        handleScroll()
-      }, 0)
+    // Only add scroll listener on home page
+    if (!isHomePage) return
 
-      window.addEventListener('scroll', handleScroll, { passive: true })
-      return () => {
-        clearTimeout(timer)
-        window.removeEventListener('scroll', handleScroll)
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 100
+      if (isScrolled !== scrolled) {
+        setScrolled(isScrolled)
       }
     }
-  }, [])
+
+    // Check initial position
+    handleScroll()
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [scrolled, isHomePage])
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
   }
 
-  const getHeaderBackground = () => {
-    // Always show solid background when menu is open or not on home page
-    if (isMenuOpen || !isHomePage) {
-      return 'bg-white/95 backdrop-blur-sm border-b border-gray-200'
+  // Simple conditional classes based on current state
+  const headerBg = () => {
+    if (!isHomePage || !isMenuOpen) {
+      return 'bg-white/90 backdrop-blur-lg border-b border-gray-200'
     }
-    // On home page, show transparent background only when at the top
-    if (isHomePage && !isScrolled) {
-      return 'bg-transparent'
-    }
-    // When scrolled, show solid background with blur
-    return 'bg-white/95 backdrop-blur-sm border-b border-gray-200'
-  }
-
-  const getTextColor = () => {
-    return 'text-black'
-  }
-
-  const getLogoFilter = () => {
-    return ''
-  }
-
-  const getMobileMenuButtonStyle = () => {
-    return 'text-black hover:bg-gray-100'
+    return scrolled 
+      ? 'bg-white/90 backdrop-blur-lg border-b border-gray-200' 
+      : 'bg-transparent'
   }
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${getHeaderBackground()}`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${headerBg()}`}>
       <div className="relative">
         <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 py-3">
           
@@ -117,32 +96,31 @@ const Header = () => {
                   alt="FUA Logo"
                   fill
                   sizes="(max-width: 640px) 48px, 56px"
-                  className={`object-contain rounded-md transition-all duration-300 ${getLogoFilter()}`}
+                  className="object-contain rounded-md"
                   priority
                 />
               </div>
             </div>
-            <span className={`font-bold text-base sm:text-lg ${getTextColor()}`}>
+            <span className="font-bold text-base sm:text-lg text-gray-900">
               FUA
             </span>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-8">
-            <NavLink href="/services-pricing" pathname={pathname} textColor={getTextColor()}>
+            <NavLink href="/services-pricing" pathname={pathname} textColor="text-gray-900">
               Services & Pricing
             </NavLink>
-            <NavLink href="/rinse" pathname={pathname} textColor={getTextColor()}>
+            <NavLink href="/rinse" pathname={pathname} textColor="text-gray-900">
               Fua Drop
             </NavLink>
           </nav>
 
-          {/* Right side - Mobile Menu Button only */}
+          {/* Mobile Menu Button */}
           <div className="flex items-center">
-            {/* Mobile Menu Button */}
             <button
               onClick={toggleMenu}
-              className={`lg:hidden p-2 rounded-md transition-colors ${getMobileMenuButtonStyle()}`}
+              className="lg:hidden p-2 rounded-md transition-colors text-gray-900 hover:bg-gray-100"
               aria-label="Toggle menu"
             >
               <svg
@@ -173,7 +151,7 @@ const Header = () => {
 
         {/* Mobile Navigation Menu */}
         {isMenuOpen && (
-          <nav className="lg:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-lg">
+          <nav className="lg:hidden absolute top-full left-0 right-0 bg-white/90 backdrop-blur-lg border-b border-gray-200 shadow-lg">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4">
               <div className="flex flex-col space-y-4">
                 <NavLink
@@ -192,8 +170,6 @@ const Header = () => {
                 >
                   Fua Drop
                 </NavLink>
-                
-                {/* Mobile-only phone link removed */}
               </div>
             </div>
           </nav>
