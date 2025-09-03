@@ -22,7 +22,7 @@ const WhyLoveRinse: React.FC<WhyLoveRinseProps> = ({ className = '' }) => {
       id: 1,
       title: "Clean clothes at your fingertips",
       description: "Schedule a pickup by simply texting \"Fua\" to 0716937165 ('FUA'), track your Valet in real time, or customize your delivery and cleaning preferences. Enjoy a seamless laundry experience designed with convenience at its core.",
-      image: "https://t3.ftcdn.net/jpg/02/75/63/56/360_F_275635693_A2S8CfjVwHpiw0trggVRcLGdbJ8g0Fs0.jpg"
+      image: "/fuabg.png"
     },
     {
       id: 2,
