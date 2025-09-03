@@ -16,61 +16,64 @@ const TimeSavingsSection: React.FC<TimeSavingsProps> = ({ activities }) => {
     {
       id: 1,
       title: "Enjoy the outdoors.",
-      description: "You'll save 3+ hours every two weeks - enough time to enjoy hikes at beautiful Muir Woods and Mount Diablo."
+      description: "Get together with friends and enjoy a nyama choma.",
+      image: "/nyamachoma.webp"
     },
     {
       id: 2,
       title: "Visit a museum.",
-      description: "You'll save 6+ hours each month - enough time to spend a day at the Cal Academy of Sciences or the de Young Museum."
+      description: "You'll save 6+ hours each month - enough time to spend a day at the nairobi museum.",
+      image: "/museumimage.webp"
     },
     {
       id: 3,
       title: "Get out of town.",
-      description: "You'll save 72+ hours a year - enough time for a long weekend at Lake Tahoe."
+      description: "Reclaim your weekend and take a road trip to the coast.",
+      image: "/coastimage.webp"
     }
   ];
 
   const activitiesToShow = activities || defaultActivities;
 
   return (
-    <div className="bg-white py-16 px-4">
+    <div className="bg-white py-8 md:py-16 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4">
+        <div className="text-center mb-4 px-2">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-4">
             What will you do with the 3+ hours you'll save?
           </h2>
-          <p className="text-lg text-gray-600">
+          <p className="text-base sm:text-lg text-gray-600">
             Using our most popular 2-bag plan, you'll save enough time to:
           </p>
         </div>
         
         {/* Activities Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-8 md:mt-12">
           {activitiesToShow.map((activity) => (
-            <div key={activity.id} className="text-center">
+            <div key={activity.id} className="text-center px-2">
               {/* Circular Image */}
-              <div className="mb-8 flex justify-center">
+              <div className="mb-6 md:mb-8 flex justify-center">
                 {activity.image ? (
                   <img 
                     src={activity.image}
                     alt={activity.title}
-                    className="w-80 h-80 rounded-full object-cover shadow-lg"
+                    className="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-full object-cover shadow-lg"
                   />
                 ) : (
-                  <div className="w-80 h-80 rounded-full bg-gray-200 flex items-center justify-center shadow-lg">
+                  <div className="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-full bg-gray-200 flex items-center justify-center shadow-lg">
                     <span className="text-gray-400 text-lg">Activity Image</span>
                   </div>
                 )}
               </div>
               
               {/* Title */}
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 md:mb-4">
                 {activity.title}
               </h3>
               
               {/* Description */}
-              <p className="text-gray-600 text-base leading-relaxed max-w-sm mx-auto">
+              <p className="text-gray-600 text-sm sm:text-base leading-relaxed max-w-sm mx-auto">
                 {activity.description}
               </p>
             </div>
