@@ -49,6 +49,7 @@ const Footer: React.FC = () => {
 
         <div className="mt-12 pt-8 border-t border-gray-800 text-center text-xs">
           <p>Copyright &copy; 2025 Fua, Inc. All Rights Reserved</p>
+          <p>Copyright &copy; 2025 Fua, Inc. All Rights Reserved</p>
         </div>
       </div>
     </footer>

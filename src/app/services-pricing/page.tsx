@@ -8,7 +8,7 @@ import HeroCTAComponent from "../components/herocta";
 export default function services () {
 
     return (
-        <div className=" text-black w-full  font-bold">
+        <div className=" text-black w-full  font-bold mt-10">
             <WashFoldComponent/>
             <HowItWorksComponent/>
             <PricingComponent/>

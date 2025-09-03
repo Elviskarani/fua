@@ -9,11 +9,11 @@ const PickupEssentials: React.FC<PickupEssentialsProps> = ({ className = '' }) =
   const features = [
     {
       icon: <Clock className="w-6 h-6 text-teal-500" />,
-      text: "Your Valet will always arrive between 8pm and 10pm."
+      text: "Your Valet will always arrive 5 minutes after your booking."
     },
     {
       icon: <MessageSquare className="w-6 h-6 text-teal-500" />,
-      text: "At 5:30pm, we'll text you a 30-minute ETA window."
+      text: "After booking, we'll text you 10-minute ETA window."
     },
     {
       icon: <MapPin className="w-6 h-6 text-teal-500" />,
@@ -21,7 +21,7 @@ const PickupEssentials: React.FC<PickupEssentialsProps> = ({ className = '' }) =
     },
     {
       icon: <Package className="w-6 h-6 text-teal-500" />,
-      text: "Your Valet will bring you your free, personalized Rinse bags. Just have your clothes ready by the door!"
+      text: "Your Valet will bring you your free, personalized Fua bags. Just have your clothes ready by the door!"
     }
   ];
 
@@ -61,7 +61,7 @@ const PickupEssentials: React.FC<PickupEssentialsProps> = ({ className = '' }) =
                   </div>
                 </div>
                 <h3 className="text-xl font-semibold mb-2">
-                  What to expect from your first Rinse.
+                  What to expect from your first Fua.
                 </h3>
                 <p className="text-sm opacity-90 text-center">
                   We've got you covered from pickup to delivery.

@@ -4,28 +4,28 @@ const AboutFeesComponent = () => {
   const fees = [
     {
       id: 1,
-      price: '$5.00',
+      price: '20bob',
       title: 'Service Fee',
       description: 'It helps cover our operational costs and ensure we can provide the best experience possible.',
       badge: null
     },
     {
       id: 2,
-      price: '$9.95',
+      price: '50bob',
       title: 'Pickup & Delivery Fee',
       description: (
         <>
           This fee covers the cost of picking up and delivering your clothes. 
           Waive this fee on all your orders by{' '}
-          <span className="text-orange-500 font-semibold">subscribing to Rinse Go</span>{' '}
-          for just $9.95/mo or $99.00/yr.
+          <span className="text-orange-500 font-semibold">subscribing to Fua Go</span>{' '}
+          for just 150bob/mo or 1500bob/yr.
         </>
       ),
       badge: null
     },
     {
       id: 3,
-      price: '$9.95',
+      price: '200bob',
       title: 'Next-Day Rush Service',
       description: 'With Next-Day Rush Service, you get your clothes back in 24 hours.',
       badge: 'OPTIONAL'
@@ -66,7 +66,7 @@ const AboutFeesComponent = () => {
                   
                   <div className="pt-2">
                     <p className="text-cyan-500 font-semibold text-sm">
-                      Free for Rinse Repeat subscribers.
+                      Free for Fua Repeat subscribers.
                     </p>
                   </div>
                 </div>
@@ -78,7 +78,7 @@ const AboutFeesComponent = () => {
         {/* Footer Note */}
         <div className="text-center">
           <p className="text-gray-600 text-sm leading-relaxed max-w-4xl mx-auto">
-            All orders have a minimum order value of $30, excluding fees. There is no minimum order for Rinse Repeat subscribers.
+            All orders have a minimum order value of 1000.0, excluding fees. There is no minimum order for Fua Repeat subscribers.
           </p>
         </div>
       </div>

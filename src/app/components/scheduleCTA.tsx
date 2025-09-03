@@ -15,8 +15,8 @@ const ScheduleCTA: React.FC<ScheduleCTAProps> = ({
   onGetDiscountClick
 }) => {
   const router = useRouter();
-  const handleDefaultSchedule = () => router.push('/schedule');
-  const handleDefaultDiscount = () => router.push('/offers/first-order');
+  const handleDefaultSchedule = () => router.push('/booking');
+  const handleDefaultDiscount = () => router.push('/booking');
 
   return (
     <section className={`relative bg-gradient-to-br from-yellow-300 via-yellow-400 to-orange-400 py-20 px-6 lg:px-12 overflow-hidden ${className}`}>
@@ -32,7 +32,7 @@ const ScheduleCTA: React.FC<ScheduleCTAProps> = ({
         {/* Main headline */}
         <div className="mb-10">
           <h2 className="text-5xl lg:text-7xl font-bold text-gray-900 leading-tight mb-2">
-            Get $20 off
+            Get 50bob off
           </h2>
           <h3 className="text-4xl lg:text-6xl font-bold text-orange-600 leading-tight">
             your first order
@@ -54,7 +54,7 @@ const ScheduleCTA: React.FC<ScheduleCTAProps> = ({
           onClick={onGetDiscountClick ?? handleDefaultDiscount}
           className="bg-teal-600 hover:bg-teal-700 text-white font-semibold px-6 py-3 rounded-full transition-all duration-200 hover:scale-105 hover:shadow-lg transform active:scale-95"
         >
-          Get $20 off
+          Get 50bob off
         </button>
       </div>
 

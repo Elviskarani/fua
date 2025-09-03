@@ -21,7 +21,6 @@ export default function Home() {
       <div>
       <ScheduleCTA />
     </div>
-    <MasonryGallery/>
     <RinseGuarantee />
     </div>
   );

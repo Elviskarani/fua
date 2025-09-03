@@ -38,7 +38,7 @@ const RinseRepeatComponent: React.FC = () => {
               console.log('Get started clicked');
             }}
           >
-            Get started with Rinse Repeat
+            Get started with Fua Repeat
           </button>
         </div>
       </div>

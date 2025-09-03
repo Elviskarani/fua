@@ -1,11 +1,14 @@
+"use client";
 import React from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 interface WashFoldSectionProps {
 className?: string;
 }
 
 const WashFoldSection: React.FC<WashFoldSectionProps> = ({ className = '' }) => {
+const router = useRouter();
 return (
 <section className={`py-20 bg-white ${className}`}>
 <div className="container mx-auto px-4">
@@ -68,8 +71,9 @@ return (
 
   {/* CTA Button */}
   <div className="mt-12">
-    <button className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-200 transform hover:scale-105 shadow-lg">
-      Get $20 off
+    <button onClick={() => router.push('/booking')} 
+    className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-200 transform hover:scale-105 shadow-lg">
+      Get 50bob off
     </button>
   </div>
 </div>
@@ -84,59 +88,13 @@ return (
     <div className="relative z-10">
       {/* Main image container */}
       <div className="bg-gray-100 rounded-3xl overflow-hidden shadow-2xl">
-        <div className="aspect-[4/3] bg-gradient-to-br from-gray-200 to-gray-300 relative">
-          {/* Placeholder for the actual image - replace with your image */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-80 h-64 bg-white rounded-2xl shadow-lg p-6">
-              {/* Person silhouette */}
-              <div className="w-16 h-16 bg-red-400 rounded-full mb-4"></div>
-              <div className="space-y-2 mb-6">
-                <div className="w-24 h-2 bg-red-400 rounded"></div>
-                <div className="w-32 h-2 bg-red-400 rounded opacity-60"></div>
-              </div>
-              
-              {/* Rinse bag representation */}
-              <div className="relative">
-                <div className="w-24 h-32 bg-gray-900 rounded-2xl mx-auto relative">
-                  <div className="absolute top-2 left-1/2 transform -translate-x-1/2">
-                    <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
-                      <span className="text-white font-bold text-xs">R</span>
-                    </div>
-                  </div>
-                  <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 text-center">
-                    <div className="text-cyan-400 text-xs font-bold">WASH</div>
-                    <div className="text-cyan-400 text-xs font-bold">& FOLD</div>
-                  </div>
-                  {/* Bag handles */}
-                  <div className="absolute -top-2 left-1/2 transform -translate-x-1/2">
-                    <div className="flex gap-1">
-                      {[...Array(6)].map((_, i) => (
-                        <div key={i} className="w-0.5 h-6 bg-orange-400 rounded-full"></div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Folded clothes stack */}
-                <div className="absolute -right-8 bottom-4 space-y-1">
-                  <div className="w-16 h-3 bg-blue-400 rounded-sm"></div>
-                  <div className="w-16 h-3 bg-green-400 rounded-sm"></div>
-                  <div className="w-16 h-3 bg-purple-400 rounded-sm"></div>
-                  <div className="w-16 h-3 bg-yellow-400 rounded-sm"></div>
-                </div>
-              </div>
-
-              {/* Plant decoration */}
-              <div className="absolute top-4 right-6">
-                <div className="w-12 h-16 relative">
-                  <div className="w-8 h-8 bg-green-500 rounded-full"></div>
-                  <div className="w-6 h-6 bg-green-400 rounded-full absolute top-2 right-1"></div>
-                  <div className="w-4 h-6 bg-green-600 absolute bottom-0 left-2"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <Image
+          src="/fuabag.jpg"
+          alt="Wash & Fold"
+          width={800}
+          height={600}
+          className="w-full h-full object-cover"
+        />
       </div>
     </div>
 
@@ -161,7 +119,7 @@ return (
           Schedule a pickup
         </h3>
         <p className="text-gray-600 leading-relaxed text-sm">
-          You can schedule a pickup any day of the week. Your Valet will arrive with your free, personalized Rinse bags between 8pm and 10pm to pick up your clothes.
+          You can schedule a pickup any day of the week. Your Valet will arrive with your free, personalized Fua bags between 8pm and 10pm to pick up your clothes.
         </p>
       </div>
     </div>

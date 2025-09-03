@@ -13,7 +13,7 @@ const RinseGuarantee: React.FC<RinseGuaranteeProps> = ({ className = '' }) => {
           {/* Left side - Main heading */}
           <div>
             <h2 className="text-5xl lg:text-6xl font-bold text-white leading-tight">
-              The Rinse Guarantee.
+              The Fua Guarantee.
             </h2>
           </div>
 

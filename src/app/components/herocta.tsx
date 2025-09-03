@@ -1,10 +1,35 @@
-"use client";
+"use client"; 
 
-import React, { useState } from 'react';
-import { ChevronRight } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { ChevronRight, ChevronDown } from 'lucide-react';
+import { generateTimeSlots, TimeSlot } from '../utils/dateUtils';
+import { useRouter } from 'next/navigation';
 
-const HeroCTAComponent = () => {
-  const [address, setAddress] = useState('');
+  const HeroCTAComponent = () => {
+    const locations = ['Ruiru', 'Kikuyu', 'Kasarani'];
+    const [selectedTimeSlot, setSelectedTimeSlot] = useState<TimeSlot | null>(null);
+    const [location, setLocation] = useState('');
+    const [availableSlots, setAvailableSlots] = useState<TimeSlot[]>([]);
+    const router = useRouter();
+  
+    useEffect(() => {
+      const slots = generateTimeSlots();
+      setAvailableSlots(slots);
+      if (slots.length > 0) {
+        setSelectedTimeSlot(slots[0]);
+      }
+    }, []);
+  
+    const handleBookingSubmit = () => {
+      if (location && selectedTimeSlot) {
+        const bookingData = {
+          timeSlot: selectedTimeSlot,
+          location
+        };
+        localStorage.setItem('bookingData', JSON.stringify(bookingData));
+        router.push('/booking');
+      }
+    };
 
   return (
     <div className="relative min-h-screen flex items-center justify-center">
@@ -28,40 +53,72 @@ const HeroCTAComponent = () => {
         </h1>
 
         {/* Booking Form */}
-        <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-2xl max-w-md mx-auto">
-          <div className="grid grid-cols-2 gap-6 mb-6">
-            <div className="text-left">
-              <label className="block text-sm font-semibold text-gray-700 mb-2">
-                Pickup
-              </label>
-              <p className="text-gray-900 font-medium text-lg">Tonight</p>
-            </div>
-            <div className="text-left">
-              <label className="block text-sm font-semibold text-gray-700 mb-2">
-                Where
-              </label>
-              <input
-                type="text"
-                value={address}
-                onChange={(e) => setAddress(e.target.value)}
-                placeholder="Add address"
-                className="w-full text-gray-900 placeholder-gray-400 border-none outline-none bg-transparent text-lg font-medium"
-              />
-              <div className="h-px bg-gray-200 mt-1"></div>
-            </div>
-          </div>
-          
-          {/* CTA Button */}
-          <button className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center">
-            <span className="mr-2">Get Started</span>
-            <ChevronRight size={20} />
-          </button>
-        </div>
-
+           <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-200">
+                         <div className="grid grid-cols-2 gap-6 mb-6">
+                           <div className="text-left relative">
+                             <label className="block text-sm font-semibold text-gray-700 mb-2">
+                               Pickup
+                             </label>
+                             <div className="relative">
+                               <select
+                                 value={selectedTimeSlot?.id || ''}
+                                 onChange={(e) => {
+                                   const slot = availableSlots.find(s => s.id === e.target.value);
+                                   setSelectedTimeSlot(slot || null);
+                                 }}
+                                 className="w-full text-gray-900 font-medium text-lg bg-white border border-gray-300 rounded-lg px-4 py-3 pr-10 appearance-none cursor-pointer hover:border-orange-400 focus:ring-2 focus:ring-orange-200 focus:border-orange-500 transition-colors"
+                               >
+                                 {availableSlots.map(slot => (
+                                   <option key={slot.id} value={slot.id}>
+                                     {slot.label}
+                                   </option>
+                                 ))}
+                               </select>
+                               <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
+                                 <ChevronDown size={20} className="text-gray-500" />
+                               </div>
+                             </div>
+                           </div>
+                           <div className="text-left relative">
+                             <label className="block text-sm font-semibold text-gray-700 mb-2">
+                               Where
+                             </label>
+                             <div className="relative">
+                               <select
+                                 value={location}
+                                 onChange={(e) => setLocation(e.target.value)}
+                                 className="w-full text-gray-900 font-medium text-lg bg-white border border-gray-300 rounded-lg px-4 py-3 pr-10 appearance-none cursor-pointer hover:border-orange-400 focus:ring-2 focus:ring-orange-200 focus:border-orange-500 transition-colors"
+                               >
+                                 <option value="">Add address</option>
+                                 {locations.map(loc => (
+                                   <option key={loc} value={loc}>{loc}</option>
+                                 ))}
+                               </select>
+                               <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
+                                 <ChevronDown size={20} className="text-gray-500" />
+                               </div>
+                             </div>
+                           </div>
+                         </div>
+                         
+                         <div className="flex items-center justify-between">
+                           <div className="bg-emerald-50 text-emerald-700 px-4 py-2 rounded-lg text-sm font-medium">
+                             Your 50ksh off in credits will be automatically applied
+                           </div>
+                           <button 
+                             onClick={handleBookingSubmit}
+                             disabled={!location || !selectedTimeSlot}
+                             className="bg-amber-400 hover:bg-amber-500 disabled:bg-gray-300 disabled:cursor-not-allowed text-black p-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+                           >
+                             <ChevronRight size={24} />
+                           </button>
+                         </div>
+                       </div>
+                
         {/* Disclaimer */}
         <div className="mt-8">
           <p className="text-white/70 text-sm max-w-2xl mx-auto leading-relaxed">
-            * The price per pound shown above for Rinse Repeat is based on a 4-bag plan, billed annually.
+            * The price per pound shown above for Fua Repeat is based on a 4-bag plan, billed annually.
           </p>
         </div>
       </div>

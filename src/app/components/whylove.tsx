@@ -21,8 +21,8 @@ const WhyLoveRinse: React.FC<WhyLoveRinseProps> = ({ className = '' }) => {
     {
       id: 1,
       title: "Clean clothes at your fingertips",
-      description: "Schedule a pickup by simply texting \"Y\" to 746-73 ('RINSE'), track your Valet in real time, or customize your delivery and cleaning preferences. Enjoy a seamless laundry experience designed with convenience at its core.",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop"
+      description: "Schedule a pickup by simply texting \"Fua\" to 0716937165 ('FUA'), track your Valet in real time, or customize your delivery and cleaning preferences. Enjoy a seamless laundry experience designed with convenience at its core.",
+      image: "https://t3.ftcdn.net/jpg/02/75/63/56/360_F_275635693_A2S8CfjVwHpiw0trggVRcLGdbJ8g0Fs0.jpg"
     },
     {
       id: 2,
@@ -34,13 +34,13 @@ const WhyLoveRinse: React.FC<WhyLoveRinseProps> = ({ className = '' }) => {
       id: 3,
       title: "World-class customer service",
       description: "Our dedicated team provides exceptional support and care for every order. From specialized handling of delicate items to responsive customer support, we're committed to exceeding your expectations.",
-      image: "https://images.unsplash.com/photo-1556742111-a301076d9d18?w=600&h=400&fit=crop"
+      image: "https://media.istockphoto.com/id/2153959421/photo/call-center-woman-and-smile-at-computer-for-telemarketing-sales-and-global-support.jpg?s=612x612&w=0&k=20&c=NZwjU-mliTBfUh-MJuB0qTfJH0lkAh3RrifmC3cn0uY="
     },
     {
       id: 4,
       title: "Make Mom proud",
       description: "Professional cleaning that keeps your wardrobe looking its best. Your clothes will come back fresher, cleaner, and better cared for than ever before, making you feel confident and put-together.",
-      image: "https://images.unsplash.com/photo-1521654947043-65150d56e9af?w=600&h=400&fit=crop"
+      image: "https://www.shutterstock.com/image-photo/close-beautiful-daughter-kissing-mother-600nw-2114224358.jpg"
     }
   ];
 
@@ -61,7 +61,7 @@ const WhyLoveRinse: React.FC<WhyLoveRinseProps> = ({ className = '' }) => {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 text-center mb-16 leading-tight">
-          Why you'll love Rinse
+          Why you'll love Fua
         </h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">

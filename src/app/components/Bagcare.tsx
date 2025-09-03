@@ -2,12 +2,12 @@ import React from 'react';
 
 interface BagCareSectionProps {
   laundryPileImage?: string;
-  rinseBagImage?: string;
+  fuaBagImage?: string;
 }
 
 const BagCareSection: React.FC<BagCareSectionProps> = ({
   laundryPileImage,
-  rinseBagImage
+  fuaBagImage
 }) => {
   return (
     <div className="bg-white py-8 md:py-16 px-4">
